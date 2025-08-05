@@ -28,6 +28,37 @@
     visibility: visible;
     opacity: 1;
 }
+body {
+    padding-top: 105px; /* roughly 45px top-bar + 60px navbar height */
+}
+/* Optional: Adjust on smaller screen sizes */
+@media (max-width: 991.98px) {
+    body {
+        padding-top: 105px; /* same padding to avoid overlay */
+    }
+}
+    /* Your existing styles */
+    html {
+        scroll-behavior: smooth;
+    }
+    section {
+        padding: 80px 0 60px 0;
+    }
+    .navbar {
+        background-color: var(--dark, #001D23) !important;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        transition: background-color 0.3s ease;
+    }
+    /* Add this: top padding to body to push content below fixed bars */
+    body {
+        padding-top: 105px;
+    }
+
+    @media (max-width: 991.98px) {
+        body {
+            padding-top: 105px;
+        }
+    }
 
 
 /*** Button ***/
