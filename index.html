@@ -41,33 +41,66 @@
         }
 
         .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
             background-color: #001D23;
             height: 45px;
             line-height: 45px;
             font-size: 0.875rem;
+            z-index:1030;
+            display: flex;
+            justify-content: space-between;
+            padding:0 15px;
         }
 
         .navbar {
+            position: fixed;
+            top: 45px;
+            left: 0;
+            right: 0;
             background-color: #001D23 !important;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
             transition: background-color 0.3s ease;
+            top: 45px !important; /* Position below the fixed top bar */
+        }
+        
+        .top-bar-content {
+            display:flex;
+            align-items: center;
+        }
+        
+        .top-bar-content small {
+            margin-right: 15px;
+            color: white;
+        }
+        
+        .top-bar-content a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .top-bar-content i {
+            margin-right: 5px;
         }
     </style>
+
 </head>
 
 <body>
 
     <!-- Fixed Top Bar -->
-    <div class="top-bar fixed-top d-none d-lg-flex justify-content-between text-white-50 px-5">
-        <div>
+    <div class="top-bar">
+        <div class="top-bar-content">
             <small><i class="fa fa-map-marker-alt me-2"></i>Srivilliputhur, Virudhunagar Dt. Tamilnadu.</small>
             <small class="ms-4"><i class="fa fa-envelope me-2"></i>info@example.com</small>
         </div>
-        <div>
+        <div class="top-bar-content">
             <small>Contact us:</small>
             <a class="text-white-50 ms-3" href="tel:9876543210"><i class="fas fa-phone-alt me-2"></i>9876543210</a>
         </div>
-    </div>
+    </div>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="top: 45px;">
@@ -432,4 +465,3 @@
     <script src="js/main.js"></script>
 </body>
 </html>
-
