@@ -30,145 +30,63 @@
     <!-- Custom Styles -->
     <link href="css/style.css" rel="stylesheet">
 
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
 
-        body {
-            padding-top: 110px; /* height of top bar + navbar */
-        }
-
-        .top-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background-color: #001D23;
-            color: white;
-            font-size: 0.85rem;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            padding: 5px 10px;
-            z-index: 1100; /* higher than navbar */
-        }
-
-        /* Keep space below fixed top bar so navbar isn't hidden */
-        .navbar {
-            position: fixed;
-            top: 35px; /* height of top bar */
-            left: 0;
-            right: 0;
-            z-index: 1000;
-        }
-
-        .top-bar {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .top-bar-content {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            color: white;
-        }
-
-        .top-bar-content small {
-            margin-right: 15px;
-            white-space: normal;
-        }
-
-        .top-bar-content a {
-            color: white;
-            text-decoration: none;
-        }
-
-        .top-bar-content i {
-            margin-right: 5px;
-        }
-
-        @media (max-width: 450px) {
-            .top-bar,
-            .top-bar .location,
-            .top-bar .email,
-            .top-bar .phone {
-                display: block !important;
-                visibility: visible !important;
-                opacity: 1 !important;
-                height: auto !important;
-                overflow: visible !important;
-                color: #fff !important; /* Keep it visible */
-            }
-
-            .top-bar {
-                flex-direction: column !important;
-                align-items: flex-start !important;
-                padding: 8px 12px !important;
-                gap: 4px !important;
-            }
-
-            .top-bar .email,
-            .top-bar .phone {
-                margin-top: 2px;
-            }
-        }
-
-        @media (max-width: 450px) {
-            /* Push header down so logo is not hidden */
-            header {
-                margin-top: 70px; /* Adjust height so it clears top-bar */
-            }
-
-            .top-bar {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                z-index: 1000;
-            }
-        }
-
-        /* Navbar fixed below top bar */
-        .navbar {
-            position: fixed !important;
-            top: 35px; /* match top-bar height */
-            left: 0;
-            right: 0;
-            z-index: 1040;
-        }
-
-        .navbar-light .navbar-toggler-icon,
-        .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
-        }
-
-        /* Optional: white border for the menu button */
-        .navbar-toggler {
-            border-color: white !important;
-        }
-</style>
 
 </head>
 
 <body>
 
-    <!-- Top Bar -->
-    <div class="top-bar">
-        <div class="location">
-            <i class="fa fa-map-marker"></i>
-            Srivilliputhur, Virudhunagar Dt. Tamilnadu.
-            <span class="email" style="margin-left: 15px;">
-                <i class="fa fa-envelope"></i> info@example.com
-            </span>
+    <!-- Top Bar --><!-- Top Bar -->
+<div class="top-bar">
+  <div class="container text-white px-2 px-md-3">
+    <!-- Desktop View (straight line) -->
+    <div class="d-none d-md-flex align-items-center justify-content-between fs-7">
+      <!-- Left Side - Email + Social -->
+      <div class="d-flex align-items-center gap-4">
+        <div class="d-flex align-items-center">
+          <i class="bi bi-envelope me-2"></i>
+          <a href="mailto:Suretrustsvpr2012@gmail.com" class="text-white text-decoration-none">Suretrustsvpr2012@gmail.com</a>
         </div>
-        <div class="phone">
-            <strong>Contact us:</strong> 9876543210
+      </div>
+      
+      <!-- Right Side - Phone Numbers -->
+      <div class="d-flex gap-4">
+        <div class="d-flex align-items-center">
+          <i class="bi bi-phone me-2"></i> 90921 80927
         </div>
+      </div>
     </div>
+
+    <!-- Mobile View (stacked) -->
+    <div class="d-md-none py-1">
+      <!-- First Line - Email + First Phone -->
+      <div class="d-flex justify-content-between align-items-center mb-2 fs-7">
+        <div class="d-flex align-items-center">
+          <i class="bi bi-envelope me-2"></i>
+          <a href="mailto:Suretrustsvpr2012@gmail.com" class="text-white text-decoration-none">Suretrustsvpr2012@gmail.com</a>
+        </div>
+        <div class="d-flex align-items-center">
+          <i class="bi bi-phone me-2"></i> 90921 80927
+        </div>
+      </div>
+      
+      <!-- Second Line - Social + Second Phone -->
+      <div class="d-flex justify-content-between align-items-center fs-7">
+        <div class="d-flex gap-3">
+          <a href="https://www.facebook.com/nanoflyinfotech/" class="text-white"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.instagram.com/" class="text-white"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/nano-fly-works/" class="text-white"><i class="bi bi-linkedin"></i></a>
+          <a href="https://www.threads.com/nanoflyinfotech/" class="text-white"><i class="bi bi-threads"></i></a>
+        </div>
+        <div class="d-flex align-items-center">
+          <i class="bi bi-phone me-2"></i> 9344229558
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
@@ -203,13 +121,15 @@
     </nav>
 
     <!-- Home Section with padding top to avoid overlap from fixed navbar -->
-    <section id="home" class="container-fluid p-0 mb-5" style="padding-top: 0;">
-        
-    </div>
-    <!-- Navbar End -->
+
 
     <!-- Your Sections: Home, About, Vision, Services, Objectives, Payment, Contact -->
     <!-- Sample Home Section (add your content similarly as before) -->
+
+
+
+
+
 
     <section id="home" class="container-fluid p-0 mb-5" style="padding-top:120px;">
         <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
@@ -375,6 +295,65 @@
     </section>
     <!-- Objectives Section End -->
 
+        <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">Trust Members</div>
+                <h1 class="display-6 mb-5">Trusted By Thousands Of People And Nonprofits</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                <div class="testimonial-item text-center">
+                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial-1.jpg" style="width: 100px; height: 100px;">
+                    <div class="testimonial-text rounded text-center p-4">
+                        <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</p>
+                        <h5 class="mb-1">Doner Name</h5>
+                        <span class="fst-italic">Profession</span>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial-2.jpg" style="width: 100px; height: 100px;">
+                    <div class="testimonial-text rounded text-center p-4">
+                        <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</p>
+                        <h5 class="mb-1">Doner Name</h5>
+                        <span class="fst-italic">Profession</span>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial-3.jpg" style="width: 100px; height: 100px;">
+                    <div class="testimonial-text rounded text-center p-4">
+                        <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</p>
+                        <h5 class="mb-1">Doner Name</h5>
+                        <span class="fst-italic">Profession</span>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial-3.jpg" style="width: 100px; height: 100px;">
+                    <div class="testimonial-text rounded text-center p-4">
+                        <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</p>
+                        <h5 class="mb-1">Doner Name</h5>
+                        <span class="fst-italic">Profession</span>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial.jpg" style="width: 100px; height: 100px;">
+                    <div class="testimonial-text rounded text-center p-4">
+                        <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</p>
+                        <h5 class="mb-1">Doner Name</h5>
+                        <span class="fst-italic">Profession</span>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial-.jpg" style="width: 100px; height: 100px;">
+                    <div class="testimonial-text rounded text-center p-4">
+                        <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</p>
+                        <h5 class="mb-1">Doner Name</h5>
+                        <span class="fst-italic">Profession</span>
+                    </div>
+                </div>                                
+            </div>
+        </div>
+    </div>
+
     <!-- Payment Details Section -->
     <section id="payment">
         <div class="container py-5">
@@ -401,39 +380,32 @@
     <!-- Payment Details Section End -->
 
     <!-- Contact Section -->
-    <section id="contact" class="bg-light">
-        <div class="container py-5">
-            <div class="text-center mb-4">
-                <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">Contact Us</div>
-                <h1 class="display-6 mb-4">Get In Touch</h1>
+<section id="contact" class="bg-light">
+    <div class="container py-5">
+        <div class="text-center mb-4">
+            <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">Contact Us</div>
+            <h1 class="display-6 mb-4">Get In Touch</h1>
+        </div>
+        <div class="row justify-content-center g-4">
+            <!-- Address -->
+            <div class="col-lg-4 col-md-6 col-12">
+                <h5>Address</h5>
+                <p><i class="fa fa-map-marker-alt me-2"></i>Srivilliputhur, Virudhunagar Dt. Tamilnadu.</p>
             </div>
-            <div class="row justify-content-center g-5">
-                <div class="col-md-6">
-                    <h5>Address</h5>
-                    <p><i class="fa fa-map-marker-alt me-2"></i>Srivilliputhur, Virudhunagar Dt. Tamilnadu.</p>
-                    <p><i class="fa fa-envelope me-2"></i>info@example.com</p>
-                    <p><i class="fa fa-phone-alt me-2"></i>+91 98765 43210</p>
-                </div>
-                <div class="col-md-6">
-                    <form>
-                        <div class="mb-3 form-floating">
-                            <input class="form-control" id="name" placeholder="Name" type="text">
-                            <label for="name">Name</label>
-                        </div>
-                        <div class="mb-3 form-floating">
-                            <input class="form-control" id="email" placeholder="Email" type="email">
-                            <label for="email">Email</label>
-                        </div>
-                        <div class="mb-3 form-floating">
-                            <textarea class="form-control" placeholder="Message" id="message" style="height:100px;"></textarea>
-                            <label for="message">Message</label>
-                        </div>
-                        <button class="btn btn-primary px-4">Send Message</button>
-                    </form>
-                </div>
+            <!-- Email -->
+            <div class="col-lg-4 col-md-6 col-12">
+                <h5>Email</h5>
+                <p><i class="fa fa-envelope me-2"></i>info@example.com</p>
+            </div>
+            <!-- Phone -->
+            <div class="col-lg-4 col-md-6 col-12">
+                <h5>Phone</h5>
+                <p><i class="fa fa-phone-alt me-2"></i>+91 98765 43210</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
     <!-- Contact Section End -->
 
     <!-- Footer Start -->
