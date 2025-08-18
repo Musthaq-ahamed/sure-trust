@@ -571,27 +571,16 @@
     
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-    const navbarToggler = document.querySelector(".navbar-toggler");
     const navbarCollapse = document.getElementById("navbarCollapse");
 
-    // Toggle on button click
-    navbarToggler.addEventListener("click", function () {
-        const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse) ||
-            new bootstrap.Collapse(navbarCollapse, { toggle: false });
-
-        if (navbarCollapse.classList.contains("show")) {
-            bsCollapse.hide();
-        } else {
-            bsCollapse.show();
-        }
-    });
-
-    // Close menu automatically when clicking an input inside
-    navbarCollapse.querySelectorAll("input, a, button, select, textarea").forEach(function (element) {
+    // Close navbar on link, button, or input click (only in mobile view)
+    navbarCollapse.querySelectorAll("a, button, input, select, textarea").forEach(function (element) {
         element.addEventListener("click", function () {
-            const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-            if (bsCollapse && navbarCollapse.classList.contains("show")) {
-                bsCollapse.hide();
+            if (window.innerWidth < 992) { // Bootstrap lg breakpoint
+                const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                if (bsCollapse && navbarCollapse.classList.contains("show")) {
+                    bsCollapse.hide();
+                }
             }
         });
     });
