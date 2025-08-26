@@ -169,6 +169,223 @@ section {
     }
 }
 
+.custom-caption {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        max-width: 700px;
+        width: 100%;
+        padding: 0 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        /* Ensure caption stays within image */
+        box-sizing: border-box;
+    }
+
+    .custom-caption h1 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: #fff;
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+        margin-bottom: 20px;
+        word-break: break-word;
+        /* Prevent overflow */
+        max-width: 100%;
+    }
+
+    .custom-caption p {
+        font-size: 1.1rem;
+        color: #f0f0f0;
+        margin-bottom: 24px;
+        word-break: break-word;
+        max-width: 100%;
+    }
+
+    .custom-caption .btn {
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 30px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        padding: 10px 28px;
+        white-space: normal;
+    }
+
+    /* Ensure caption does not overflow image on all screens */
+    .carousel-item {
+        position: relative;
+        overflow: hidden;
+    }
+    .carousel-item img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .service-container {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.service-track-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+.service-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.service-slide {
+  flex: 0 0 calc(100% / 3); /* 3 per row on desktop */
+  box-sizing: border-box;
+  padding: 15px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+  text-align: center;
+}
+
+.service-slide img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  pointer-events: none; /* Prevent drag interactions */
+}
+
+
+.service-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.prev-service { left: 10px; }
+.next-service { right: 10px; }
+
+/* Mobile view - single image */
+@media (max-width: 768px) {
+  .service-slide {
+    flex: 0 0 100%; /* Show 1 per row */
+  }
+}
+
+    /* Responsive for Tablets */
+    @media (max-width: 991px) {
+        .custom-caption h1 {
+            font-size: 1.6rem;
+        }
+        .custom-caption p {
+            font-size: 1rem;
+        }
+        .custom-caption .btn {
+            font-size: 0.95rem;
+            padding: 9px 22px;
+        }
+    }
+
+    /* Responsive for Mobiles */
+    @media (max-width: 576px) {
+        .custom-caption {
+            max-width: 100%;
+            padding: 10px 5px;
+        }
+        .custom-caption h1 {
+            font-size: 1.15rem;
+            line-height: 1.3;
+            margin-bottom: 12px;
+        }
+        .custom-caption p {
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+        .custom-caption .btn {
+            font-size: 0.9rem;
+            padding: 7px 14px;
+        }
+    }
+.services .member {
+  text-align: center;
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  overflow: hidden;
+  box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.1);
+}
+
+.services .member img {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.services .member .member-content {
+  padding: 0 20px 30px 20px;
+}
+
+.services .member h4 {
+  font-weight: 700;
+  margin-top: 16px;
+  margin-bottom: 2px;
+  font-size: 20px;
+}
+
+.services .member span {
+  font-style: italic;
+  display: block;
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.services .member p {
+  padding-top: 10px;
+  font-size: 14px;
+  font-style: italic;
+  color: #6c757d;
+}
+
+.services .member .social {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.services .member .social a {
+  color: #a2a2a2;
+  transition: 0.3s;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #bbbbbb;
+}
+
+.services .member .social a:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.services .member .social i {
+  font-size: 18px;
+  margin: 0 2px;
+}
 /* Navbar fixed below top bar */
 .navbar {
     position: fixed !important;
