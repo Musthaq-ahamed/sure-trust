@@ -700,100 +700,81 @@ const prevBtn = document.querySelector(".prev-service");
 const nextBtn = document.querySelector(".next-service");
 
 let index = 0;
-const slidesToShow = 3;
+let slidesToShow = 3; // default for desktop
+
+function getSlidesToShow() {
+  if (window.innerWidth < 768) return 1;   // Mobile = show 1 slide
+  if (window.innerWidth < 1024) return 2;  // Tablet = show 2 slides
+  return 3;                                // Desktop = 3 slides
+}
 
 function updateSlide() {
+  slidesToShow = getSlidesToShow();
   const slideWidth = track.clientWidth / slidesToShow;
+  track.style.transition = "transform 0.4s ease-in-out";
   track.style.transform = `translateX(-${index * slideWidth}px)`;
 }
 
+// Next button
 nextBtn.addEventListener("click", () => {
   if (index < slides.length - slidesToShow) {
     index++;
   } else {
-    index = 0; // loop back
+    index = 0; // loop
   }
   updateSlide();
 });
 
+// Prev button
 prevBtn.addEventListener("click", () => {
   if (index > 0) {
     index--;
   } else {
-    index = slides.length - slidesToShow; // loop back
+    index = slides.length - slidesToShow;
   }
   updateSlide();
 });
 
-// Prevent drag in desktop
+// Swipe support (for mobile)
+let startX = 0;
+let isDragging = false;
+
+track.addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+  isDragging = true;
+});
+
+track.addEventListener("touchmove", (e) => {
+  if (!isDragging) return;
+  const moveX = e.touches[0].clientX;
+  const diff = startX - moveX;
+
+  if (Math.abs(diff) > 50) { // minimum swipe distance
+    if (diff > 0) {
+      // swipe left → next
+      if (index < slides.length - slidesToShow) index++;
+      else index = 0;
+    } else {
+      // swipe right → prev
+      if (index > 0) index--;
+      else index = slides.length - slidesToShow;
+    }
+    updateSlide();
+    isDragging = false;
+  }
+});
+
+track.addEventListener("touchend", () => {
+  isDragging = false;
+});
+
+// Prevent drag on desktop
 slides.forEach(slide => {
   slide.addEventListener("dragstart", e => e.preventDefault());
 });
 
 window.addEventListener("resize", updateSlide);
 updateSlide();
-
-   var swiper = new Swiper(".swiper", {
-    slidesPerView: 3,
-    spaceBetween: 20,
-    loop: true,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    // Mobile responsive
-    breakpoints: {
-      0: {
-        slidesPerView: 1
-      },
-      768: {
-        slidesPerView: 2
-      },
-      1024: {
-        slidesPerView: 3
-      }
-    }
-  });
-  /**
- * Services Slider (mobile friendly)
- */
-new Swiper('.services-slider', {
-  speed: 600,
-  loop: true,
-  autoplay: {
-    delay: 5000,
-    disableOnInteraction: false
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    type: 'bullets',
-    clickable: true
-  },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  breakpoints: {
-    320: {  // Mobile
-      slidesPerView: 1,
-      spaceBetween: 20
-    },
-    768: {  // Tablet
-      slidesPerView: 2,
-      spaceBetween: 30
-    },
-    1024: { // Desktop
-      slidesPerView: 3,
-      spaceBetween: 40
-    }
-  }
-});
-
-
 
 </script>
 
@@ -812,5 +793,4 @@ new Swiper('.services-slider', {
     <script src="js/main.js"></script>
 
 </html>
-
 
