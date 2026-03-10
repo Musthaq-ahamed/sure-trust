@@ -249,7 +249,13 @@ section {
     text-align: center;
     padding: 15px;
 }
-
+/* This will affect the text inside your lists and paragraphs */
+#vision .list-unstyled li, 
+#vision p, 
+#vision .display-6 {
+    color: #000000 !important;
+    font-weight: 400; /* Optional: makes it slightly more readable against the light bg */
+}
 /* Force Image and Video to the same ratio */
 .service-slide img, 
 .service-slide video {
