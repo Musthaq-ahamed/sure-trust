@@ -237,10 +237,7 @@ section {
   width: 100%;
 }
 
-.service-track {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
+
 /* Container for the media to ensure uniform size */
 .service-slide {
     display: flex;
@@ -268,22 +265,40 @@ section {
 }
 
 /* Ensure titles have a consistent height so buttons/rows stay aligned */
+/* Update this block to allow the text to grow */
 .service-slide .card-title {
     font-size: 1rem;
-    height: 3em;            /* Reserved space for 2-3 lines of text */
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
+    /* Remove fixed height and clamping */
+    height: auto; 
+    min-height: 3em; /* Keeps a minimum space so boxes stay somewhat aligned */
+    overflow: visible;
+    display: block; /* Changed from -webkit-box to allow full wrap */
+    padding: 10px 5px;
+    margin-bottom: 0;
+    line-height: 1.4;
+    word-wrap: break-word;
 }
 
+/* Update this block to ensure the card can expand vertically */
 .service-slide {
-  flex: 0 0 calc(100% / 3); /* 3 per row on desktop */
-  box-sizing: border-box;
-  padding: 15px;
-  border: 2px solid #ddd;
-  border-radius: 10px;
-  background: #fff;
-  text-align: center;
+    flex: 0 0 calc(100% / 3);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Aligns content to the top */
+    height: auto; 
+    box-sizing: border-box;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background: #fff;
+    text-align: center;
+}
+
+/* Ensure the track allows slides to be the same height as the tallest one */
+.service-track {
+    display: flex;
+    align-items: stretch; 
+    transition: transform 0.5s ease-in-out;
 }
 
 .service-slide img {
